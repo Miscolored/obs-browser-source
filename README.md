@@ -15,7 +15,9 @@ The script deploys a local web-app that shows the score (for use as an OBS brows
 
 ## Start the score-card plugin
 1. Clone or download the contents of this repo
-1. Open OBS Tools>Scripts>+
+1. Open OBS Tools>Scripts>
+1. On the Python Settings tab, ensure you have a Python 3.6 selected (OBS limitation)
+1. On the Scripts tab select +
 1. Select score-card-obs-script.py
 1. Add Scores To Track appropriate for your game (i.e. crew, impostor or cops, robbers)
 1. Select Fonts, and Colors (note the Score Font options are your system fonts, and may not render as expected across devices (including your OBS browser source))
@@ -64,7 +66,8 @@ The app writes some log information to a logfile on the container called score-c
 Open an issue if you'd like me to add a feature or fix a bug.
 Open a PR if you've added or fixed something, or just fork.
 
-# Future Roadmap Ideas
+# Feature Roadmap Ideas and TODOs
+1. Improve logging
 1. Add ties
 1. Load saved configurations
 1. Create browser source
