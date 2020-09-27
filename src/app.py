@@ -103,7 +103,7 @@ def reset():
     scoreemit()
 
 def setup():
-    handler = RotatingFileHandler('foo.log', maxBytes=10000, backupCount=1)
+    handler = RotatingFileHandler('score-card.log', maxBytes=10000, backupCount=1)
     handler.setLevel(logging.INFO)
     app.logger.addHandler(handler)
 
