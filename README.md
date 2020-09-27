@@ -1,6 +1,6 @@
 A full-on OBS score tracking script.
 
-The script deploys a local web-app that shows the score (for use as an OBS browser source). Clicking a score updates them across all browsers (includign the OBS browser source). With this, you can update your score for your viewers in real time using any android, iphone, computer, or tablet on the OBS-computer network.
+The script deploys a local containerized Flask webapp that shows the score (for use as an OBS browser source). Clicking a score updates them across all browsers (includign the OBS browser source). With this, you can update your score for your viewers in real time using any android, iphone, computer, or tablet on the OBS-computer network.
 
 # Usage
 1. Once deployed, the script launches a containerized webapp that can be used to control the score shown
@@ -22,6 +22,7 @@ The script deploys a local web-app that shows the score (for use as an OBS brows
 1. Add Scores To Track appropriate for your game (i.e. crew, impostor or cops, robbers)
 1. Select Fonts, and Colors (note the Score Font options are your system fonts, and may not render as expected across devices (including your OBS browser source))
 1. Click Deploy Score Card Server
+1. Docker.exe popups may be visible for a second while the image is built and container started)
 
 ## Adding the scorecard as an overlay in OBS
 1. Once deployed, create a new browser source with the following information
@@ -29,7 +30,7 @@ The script deploys a local web-app that shows the score (for use as an OBS brows
   * Refresh browser when scene becomes active: check
   * URL:  http://localhost/5000/score-card
   * Width: depends on your game, font, score names, and stream resolution (400 is a good starting point)
-  * Height: depends on your game, font, number of scores, and stream resolution (175 is a good starting point)
+  * Height: depends on your game, font, number of scores, and stream resolution (175 is a good starting point) (crop out the Reset button from the view)
   * Click Refresh cache of current page
 1. The score card is now available as a browser source to be added to your OBS scenes
 
@@ -48,6 +49,7 @@ You cannot interact with the browser source from your OBS scene. You must use a 
 ## Shutting down and cleaning up
 1. From OBS Scripts window, select score-card-obs-script.py
 1. Click Remove Score Card Server (this will delete the container and image created during deployment)
+1. Docker.exe command windows may pop up for a second while docker tears down the container and removes the image.
 
 # Logs
 The plugin writes some log information to the OBS log, which can be accessed through OBS via Help>Log Files>View Current Log
