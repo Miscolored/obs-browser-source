@@ -2,6 +2,8 @@ A full-on OBS score tracking script.
 
 The script deploys a local containerized Flask webapp that shows the score (for use as an OBS browser source). Clicking a score updates them across all browsers (includign the OBS browser source). With this, you can update your score for your viewers in real time using any android, iphone, computer, or tablet on the OBS-computer network.
 
+![Score Card Browser Source Screenshot](https://raw.githubusercontent.com/Miscolored/obs-score-card-app/master/img/screenshot.PNG)
+
 # Usage
 1. Once deployed, the script launches a containerized webapp that can be used to control the score shown
 1. Use a web browser to increment or reset scores based on your wins/losses in all kinds of games, like Among Us, CSGO, etc.
