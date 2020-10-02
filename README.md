@@ -37,7 +37,11 @@ The script deploys a local containerized Flask webapp that shows the score (for 
 1. The score card is now available as a browser source to be added to your OBS scenes
 
 ## Updating the scores
-You cannot interact with the browser source from your OBS scene. You must use a browser on the OBS host or other browsing device on the same network.
+You can view and update the score card from any browser.
+
+### Viewing inside OBS as a Custom Browser Dock
+1. In OBS click View>Docker>Custom Browser Docks
+1. Give the dock a name and enter http://localhost:5000/score-card/ to the URL
 
 ### Viewing the app locally (on OBS host)
 1. Browser to http://localhost:5000/score-card/
