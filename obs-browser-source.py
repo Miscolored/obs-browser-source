@@ -119,22 +119,22 @@ def remove_browser_source_server(prop, props):
 def is_user_config(props, prop, data):
     if data:
         config = obs.obs_data_get_json(data)
-        configjson = json.loads(str(config))
+        configjson = json.loads(config)
         del(config)
 
         isUserConfig = 'use_user_config' in configjson.keys() and configjson['use_user_config']
+        
+        for a_prop in ('score_names', 'score_count', 'font', 'fgcolor', 'bgcolor'):
+            thisprop = obs.obs_properties_get(props, a_prop)
+            obs.obs_property_set_visible(thisprop, not isUserConfig)
+            del(thisprop)
+        config_path_property = obs.obs_properties_get(props, 'user_config')
+        obs.obs_property_set_visible(config_path_property, isUserConfig)
+        del(config_path_property)
+
         if isUserConfig:
             global settings
-            settings = configjson
-        else:
-            for a_prop in ('score_names', 'font', 'fgcolor', 'bgcolor'):
-                thisprop = obs.obs_properties_get(props, a_prop)
-                obs.obs_property_set_visible(thisprop, not isUserConfig)
-                del(thisprop)
-            config_path_property = obs.obs_properties_get(props, 'user_config')
-            obs.obs_property_set_visible(config_path_property, isUserConfig)
-
-            del(config_path_property)
+            settings = data
 
     return True
 
@@ -147,6 +147,7 @@ def script_properties():
     del(checkbox)
     obs.obs_properties_add_path(props, "user_config", "Saved Config Path", obs.OBS_PATH_FILE, "*.json", os.path.join(os.path.dirname(__file__), 'config'))
     obs.obs_properties_add_editable_list(props, "score_names", "Scores To Track", obs.OBS_EDITABLE_LIST_TYPE_STRINGS, "", "")
+    obs.obs_properties_add_int(props, "score_count", "Count per Score", 0, 10, 1)
     obs.obs_properties_add_font(props, "font", "Scores Font")
     obs.obs_properties_add_color(props, "fgcolor", "Text Color")
     obs.obs_properties_add_color(props, "bgcolor", "Background Color")
