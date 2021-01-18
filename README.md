@@ -21,7 +21,7 @@ You can update these views for your viewers in real time using any android, ipho
 1. OBS (tested on OBS Studio 25.0.8+)
 
 ## Start the bowser source plugin
-1. Clone or download the contents of this repo
+1. Clone or download the contents of this repo to OBS_Install_Folder\data\obs-plugins\ , i.e. C:\Program Files\obs-studio\data\obs-plugins\
 1. Open OBS Tools>Scripts>
 1. On the Python Settings tab, ensure you have a Python 3.6 selected (OBS limitation)
 1. On the Scripts tab select +
